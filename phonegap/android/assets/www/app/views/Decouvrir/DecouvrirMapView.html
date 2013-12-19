@@ -1,0 +1,28 @@
+ <div id="decouvrirMapView" class="decouvrir">
+ 	<div id="menuView" class="hcenter">
+	 		<a href="#sitesList" id="siteListButton">
+	 			<img src="img/decouvrir/bouton-liste-passif.png">
+	 		</a>
+	 		<a href="#sitesMap" id="sitesMapButton">
+	 			<img src="img/decouvrir/bouton-carte-actif.png">
+	 		</a>
+	 		<a href="#sitesPhotos" id="sitesPhotosButton">
+	 			<img src="img/decouvrir/bouton-photos-passif.png">
+	 		</a>
+ 	</div>
+	<div id="mapContainer" class="viewContent">
+	    <div id="map" style="width:100%;height:100%;"></div>
+	</div>
+	<div id="footer" class="hcenter">
+	
+	</div>
+	<div id="footerView" class="black-background">
+		<span><strong>Lieux</strong></span>
+		<% if(currentUser.get("logged")) { %>
+		<span class="color-green"><img src="img/decouvrir/puce-lieux-adecouvrir.png" class="puce"/> à découvrir</span>
+		<span class="color-white"><img src="img/decouvrir/puce-lieux-dejavisites.png" class="puce"/> déjà visités</span>
+		<span class="color-pink"><img src="img/decouvrir/puce-lieux-partages.png" class="puce"/> partagés</span>
+		<% } %>
+		<span class="color-pink"><img src="img/decouvrir/icon_mp13.png" class="puce"/> marseille-provence 2013</span>
+	</div>
+</div>

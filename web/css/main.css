@@ -1,0 +1,896 @@
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+/* line 18, ../sass/main.scss */
+body {
+  padding-top: 50px;
+}
+
+/* line 22, ../sass/main.scss */
+.color-green {
+  color: #009036;
+}
+
+/* line 23, ../sass/main.scss */
+.color-pink {
+  color: #e2007a;
+}
+
+/* line 24, ../sass/main.scss */
+.color-yellow {
+  color: #ffcc33;
+}
+
+/* line 25, ../sass/main.scss */
+.color-white {
+  color: white;
+}
+
+/* line 26, ../sass/main.scss */
+.color-black {
+  color: #363636;
+}
+
+/* line 28, ../sass/main.scss */
+.navbar .container {
+  width: 1004px;
+}
+
+/* line 32, ../sass/main.scss */
+.navbar-inner {
+  height: 50px;
+  line-height: 30px;
+}
+
+/* line 36, ../sass/main.scss */
+.navbar-inner li {
+  line-height: 30px;
+  font-weight: bold;
+}
+
+/* line 41, ../sass/main.scss */
+.navbar .brand, .navbar .nav > li > a {
+  padding-top: 1px;
+}
+
+/* line 45, ../sass/main.scss */
+.jspVerticalBar {
+  width: 16px;
+}
+
+/* line 48, ../sass/main.scss */
+.jspHorizontalBar {
+  height: 16px;
+}
+
+/* line 52, ../sass/main.scss */
+.button, .clickable {
+  cursor: pointer;
+}
+
+/* line 56, ../sass/main.scss */
+.score {
+  background-color: rgba(0, 0, 0, 0.5);
+  -moz-border-radius: 12px;
+  -webkit-border-radius: 12px;
+  border-radius: 12px;
+  border: 2px solid white;
+  display: inline-block;
+  color: white;
+  font-family: arial;
+  font-size: 12px;
+  line-height: 12px;
+  font-weight: bold;
+  padding: 3px 3px;
+  z-index: 100;
+  float: left;
+}
+
+/* line 73, ../sass/main.scss */
+.photo-icon {
+  height: 22px;
+  float: left;
+  line-height: 22px;
+  padding-left: 2px;
+}
+/* line 79, ../sass/main.scss */
+.photo-icon img {
+  height: 22px;
+  width: 22px;
+}
+
+/* line 85, ../sass/main.scss */
+label, input, button, select, textarea {
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 13px;
+}
+
+/* line 90, ../sass/main.scss */
+input[type="checkbox"] {
+  display: none;
+}
+
+/* line 93, ../sass/main.scss */
+input[type="checkbox"] + label {
+  display: inline-block;
+  min-height: 25px;
+  padding-left: 25px;
+  padding-top: 5px;
+  margin: -1px 4px 0 0;
+  vertical-align: middle;
+  background: url("/assets/img/checkbox-unchecked.png") left top no-repeat;
+  cursor: pointer;
+}
+
+/* line 104, ../sass/main.scss */
+input[type="checkbox"]:checked + label {
+  background: url("/assets/img/checkbox-checked.png") left top no-repeat;
+}
+
+/* .vote-button {
+    border: none;
+    background: url('/assets/img/je-vote.png') no-repeat top left;
+    padding: 2px 8px;
+    height:36px;
+    width:48px;
+} */
+/* line 116, ../sass/main.scss */
+.vote-button {
+  border: none;
+  padding-top: 40px;
+  width: 48px;
+  text-align: center;
+  cursor: pointer;
+}
+
+/* line 125, ../sass/main.scss */
+#votez {
+  background: url("/assets/img/votez-grise.png") no-repeat top center;
+  background-size: 40px 40px;
+}
+
+/* line 129, ../sass/main.scss */
+#voter {
+  background: url("/assets/img/voter-blanc.png") no-repeat top center;
+  background-size: 40px 40px;
+}
+
+/* line 133, ../sass/main.scss */
+#vote-ok {
+  background: url("/assets/img/vote-ok.png") no-repeat top center;
+  background-size: 40px 40px;
+}
+
+/* input[type=checkbox].css-checkbox {
+	display:none;
+}
+
+input[type=checkbox].css-checkbox + label.css-label {
+	padding-left:20px;
+	height:15px; 
+	display:inline-block;
+	line-height:15px;
+	background-repeat:no-repeat;
+	background-position: 0 0;
+	font-size:15px;
+	vertical-align:middle;
+	cursor:pointer;
+}
+
+input[type=checkbox].css-checkbox:checked + label.css-label {
+	background-position: 0 -15px;
+}
+
+.css-label{
+	background-image:url(http://csscheckbox.com/checkboxes/dark-check-green.png);
+}
+ */
+/* line 164, ../sass/main.scss */
+#profileInfo {
+  width: 150px;
+  line-height: 50px;
+  height: 50px;
+}
+/* line 169, ../sass/main.scss */
+#profileInfo #userInfo {
+  width: 115px;
+  font-size: 12px;
+  line-height: 12px;
+  color: #bfbfbf;
+  text-align: right;
+  vertical-align: middle;
+  display: inline-block;
+}
+/* line 180, ../sass/main.scss */
+#profileInfo #profileButton {
+  width: 30px;
+  float: right;
+}
+
+/* line 187, ../sass/main.scss */
+.template {
+  display: none;
+}
+
+/**
+ * GLOBAL
+ */
+/* line 194, ../sass/main.scss */
+.container {
+  width: 1024px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* line 200, ../sass/main.scss */
+#pageHeader {
+  position: fixed;
+  height: 50px;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  width: 100%;
+  background-color: black;
+  z-index: 1050;
+}
+/* line 214, ../sass/main.scss */
+#pageHeader .navbar ul {
+  text-align: right;
+  display: inline-block;
+  list-style: none;
+}
+/* line 218, ../sass/main.scss */
+#pageHeader .navbar ul li {
+  display: inline;
+}
+
+/**
+ * CONTENT LEVEL
+ */
+/* line 228, ../sass/main.scss */
+#viewHeader {
+  position: absolute;
+  color: white;
+  font-weight: bold;
+  top: 50px;
+  height: 50px;
+  width: 100%;
+  padding-left: 10px;
+  left: 0px;
+  right: 0px;
+}
+/* line 238, ../sass/main.scss */
+#viewHeader .title {
+  position: relative;
+  line-height: 50px;
+  left: 297px;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+}
+/* line 246, ../sass/main.scss */
+#viewHeader #pageTitle {
+  position: absolute;
+  top: -12px;
+  height: 12px;
+  width: 400px;
+  padding-left: 400px;
+  font-size: 10px;
+  line-height: 12px;
+  font-style: normal;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: black;
+  z-index: 1100;
+}
+
+/* line 262, ../sass/main.scss */
+#viewContent {
+  position: absolute;
+  top: 110px;
+  bottom: 0px;
+  width: 1024px;
+  text-transform: uppercase;
+  font-size: 11px;
+  line-height: 13px;
+  font-weight: bold;
+}
+/* line 272, ../sass/main.scss */
+#viewContent strong {
+  text-decoration: underline;
+}
+
+/* line 277, ../sass/main.scss */
+#viewFooter {
+  position: fixed;
+  height: 33px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  width: 100%;
+  background-color: black;
+  line-height: 33px;
+  font-size: 13px;
+  font-weight: bold;
+  font-style: italic;
+  text-transform: none;
+  text-decoration: none;
+}
+/* line 291, ../sass/main.scss */
+#viewFooter strong {
+  text-transform: uppercase;
+  text-decoration: none;
+}
+/* line 295, ../sass/main.scss */
+#viewFooter span {
+  padding: 5px;
+}
+
+/**
+ * HOME VIEW
+ */
+/* line 303, ../sass/main.scss */
+#homeView {
+  width: 1004px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+/* line 307, ../sass/main.scss */
+#homeView #homeCarousel {
+  width: 1004px;
+  height: 571px;
+}
+
+/**
+ * DECOUVRIR PHOTOS VIEW
+ */
+/* line 317, ../sass/main.scss */
+#decouvrirView #viewHeader {
+  background-color: #009036;
+}
+/* line 321, ../sass/main.scss */
+#decouvrirView .jspTrack {
+  background-color: #9ad3b0;
+}
+/* line 324, ../sass/main.scss */
+#decouvrirView .jspDrag {
+  background-color: #009036;
+}
+/* line 327, ../sass/main.scss */
+#decouvrirView #pageTitle {
+  color: #009036;
+  padding-left: 420px;
+}
+/* line 332, ../sass/main.scss */
+#decouvrirView #viewContent {
+  color: #009036;
+  bottom: 33px;
+}
+/* line 336, ../sass/main.scss */
+#decouvrirView .image-button {
+  padding-top: 4px;
+}
+/* line 339, ../sass/main.scss */
+#decouvrirView #viewTitle {
+  display: none;
+}
+/* line 342, ../sass/main.scss */
+#decouvrirView #viewTitle.visible {
+  display: block;
+  position: absolute;
+  bottom: 0px;
+  margin-left: 300px;
+  width: 500px;
+  height: 50px;
+  vertical-align: bottom;
+}
+
+/* line 355, ../sass/main.scss */
+#sitesView {
+  position: absolute;
+  overflow: auto;
+  left: 10px;
+  top: 0px;
+  bottom: 0px;
+}
+/* line 361, ../sass/main.scss */
+#sitesView .site-summary {
+  display: inline-table;
+  height: 179px;
+  width: 138px;
+  margin: 0px;
+  position: relative;
+}
+/* line 368, ../sass/main.scss */
+#sitesView .site-summary .site-photo {
+  height: 138px;
+  width: 138px;
+}
+/* line 371, ../sass/main.scss */
+#sitesView .site-summary .site-photo img {
+  height: 138px;
+  width: 138px;
+}
+/* line 376, ../sass/main.scss */
+#sitesView .site-summary .site-caption {
+  position: absolute;
+  top: 110px;
+  line-height: 22px;
+  height: 23px;
+  width: 136px;
+  padding: 2px;
+}
+/* line 384, ../sass/main.scss */
+#sitesView .site-summary .site-name {
+  background-color: white;
+  font-weight: bold;
+  color: green;
+  height: 40px;
+  width: 138px;
+}
+
+/**
+ * DECOUVRIR MAP VIEW
+ */
+/* line 399, ../sass/main.scss */
+#decouvrirMapView #mapContainer {
+  position: relative;
+  left: 0px;
+  right: auto;
+  height: 800px;
+}
+
+/**
+ * DECOUVRIR SITE VIEW
+ */
+/* line 416, ../sass/main.scss */
+#siteView-wrapper {
+  position: absolute;
+}
+/* line 419, ../sass/main.scss */
+#siteView-wrapper #siteView-photo {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 279px;
+  height: 279px;
+  z-index: 500;
+}
+/* line 427, ../sass/main.scss */
+#siteView-wrapper #siteView-descriptif {
+  position: absolute;
+  top: 10px;
+  left: 297px;
+  width: 413px;
+  height: 193px;
+  background-color: #009036;
+  color: white;
+  font-weight: bold;
+}
+/* line 437, ../sass/main.scss */
+#siteView-wrapper #siteView-descriptif .scrolltab {
+  margin: 10px;
+  height: 173px;
+  overflow: auto;
+}
+/* line 443, ../sass/main.scss */
+#siteView-wrapper #siteView-map {
+  position: absolute;
+  top: 10px;
+  left: 721px;
+  width: 271px;
+  height: 193px;
+}
+/* line 451, ../sass/main.scss */
+#siteView-wrapper #siteView-infobar {
+  position: absolute;
+  top: 211px;
+  left: 0px;
+  width: 727px;
+  height: 67px;
+  background-color: #009036;
+  font-weight: bold;
+  color: white;
+  padding: 5px;
+  padding-left: 297px;
+  font-size: 12px;
+  line-height: 14px;
+}
+/* line 465, ../sass/main.scss */
+#siteView-wrapper #siteView-infobar div {
+  display: inline-block;
+  vertical-align: top;
+}
+/* line 469, ../sass/main.scss */
+#siteView-wrapper #siteView-infobar #infobar-1 {
+  width: 60px;
+}
+/* line 472, ../sass/main.scss */
+#siteView-wrapper #siteView-infobar #infobar-2 {
+  margin-top: 5px;
+  width: 150px;
+}
+/* line 476, ../sass/main.scss */
+#siteView-wrapper #siteView-infobar #infobar-3 {
+  width: 70px;
+}
+/* line 479, ../sass/main.scss */
+#siteView-wrapper #siteView-infobar #infobar-4 {
+  font-style: italic;
+  width: 200px;
+}
+/* line 483, ../sass/main.scss */
+#siteView-wrapper #siteView-infobar #infobar-5 {
+  font-style: italic;
+  width: 200px;
+}
+/* line 489, ../sass/main.scss */
+#siteView-wrapper #siteView-photos {
+  position: absolute;
+  top: 297px;
+  left: 10px;
+  width: 994px;
+}
+/* line 494, ../sass/main.scss */
+#siteView-wrapper #siteView-photos .photo-selection {
+  display: inline-block;
+  height: 139px;
+  width: 139px;
+  border: solid 1px white;
+}
+/* line 499, ../sass/main.scss */
+#siteView-wrapper #siteView-photos .photo-selection .photo-image {
+  height: 139px;
+  width: 139px;
+}
+/* line 503, ../sass/main.scss */
+#siteView-wrapper #siteView-photos .photo-selection .photo-caption {
+  position: absolute;
+  top: 111px;
+  line-height: 22px;
+  height: 23px;
+  width: 137px;
+  padding: 2px;
+  z-index: 100;
+}
+/* line 514, ../sass/main.scss */
+#siteView-wrapper #siteView-photos .photo-border {
+  position: absolute;
+  height: 139px;
+  width: 139px;
+  display: none;
+}
+/* line 521, ../sass/main.scss */
+#siteView-wrapper #siteView-photos .photo-selection.selected .photo-border {
+  display: block;
+  z-index: 50;
+}
+
+/**
+ * PALMARES GLOBAL
+ */
+/* line 533, ../sass/main.scss */
+#palmaresView .jspTrack {
+  background-color: #fcf398;
+}
+/* line 536, ../sass/main.scss */
+#palmaresView .jspDrag {
+  background-color: #ffcc33;
+}
+/* line 540, ../sass/main.scss */
+#palmaresView #pageTitle {
+  color: #ffcc33;
+  padding-left: 745px;
+}
+/* line 545, ../sass/main.scss */
+#palmaresView .palmares-col {
+  position: absolute;
+  width: 302px;
+}
+/* line 550, ../sass/main.scss */
+#palmaresView .palmares-col.photos_qualite {
+  left: 20px;
+}
+/* line 553, ../sass/main.scss */
+#palmaresView .palmares-col.photos_insolite {
+  left: 370px;
+}
+/* line 556, ../sass/main.scss */
+#palmaresView .palmares-col.photos_top {
+  left: 720px;
+}
+/* line 560, ../sass/main.scss */
+#palmaresView .photo-title {
+  color: #ffcc33;
+}
+/* line 564, ../sass/main.scss */
+#palmaresView #photoView #auteur, #palmaresView #photoView #lieu, #palmaresView #photoView #vote, #palmaresView #photoView #infos {
+  background-color: #ffcc33;
+}
+/* line 567, ../sass/main.scss */
+#palmaresView #photoView #lieu {
+  background-image: url("/assets/img/palmares/PALMARES-fichelieu.png");
+}
+/* line 571, ../sass/main.scss */
+#palmaresView #viewHeader {
+  background-color: #ffcc33;
+}
+/* line 573, ../sass/main.scss */
+#palmaresView #viewHeader .palmares-col {
+  height: 40px;
+  margin-top: 5px;
+  font-size: 12px;
+  font-weight: bold;
+}
+/* line 580, ../sass/main.scss */
+#palmaresView #viewContent {
+  color: #ffcc33;
+}
+
+/* line 585, ../sass/main.scss */
+#palmaresViewHeader {
+  position: absolute;
+}
+
+/* line 591, ../sass/main.scss */
+#palmaresMainView #palmares-header {
+  position: relative;
+  height: 40px;
+}
+/* line 594, ../sass/main.scss */
+#palmaresMainView #palmares-header .photos_top {
+  text-align: center;
+}
+/* line 599, ../sass/main.scss */
+#palmaresMainView #palmaresView-photos {
+  top: 50px;
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+}
+/* line 605, ../sass/main.scss */
+#palmaresMainView #palmaresView-photos .palmares-col {
+  position: absolute;
+  overflow: auto;
+  top: 0px;
+  bottom: 0px;
+}
+/* line 611, ../sass/main.scss */
+#palmaresMainView #palmaresView-photos .palmaresView-photo {
+  display: inline-block;
+  height: 180px;
+  width: 139px;
+  border: solid 1px white;
+  font-weight: bold;
+}
+/* line 618, ../sass/main.scss */
+#palmaresMainView #palmaresView-photos .palmaresView-photo .photo-selection {
+  position: absolute;
+}
+/* line 620, ../sass/main.scss */
+#palmaresMainView #palmaresView-photos .palmaresView-photo .photo-selection .photo-image {
+  height: 139px;
+  width: 139px;
+}
+/* line 624, ../sass/main.scss */
+#palmaresMainView #palmaresView-photos .palmaresView-photo .photo-selection .photo-caption {
+  position: absolute;
+  top: 111px;
+  line-height: 22px;
+  height: 23px;
+  width: 137px;
+  padding: 2px;
+}
+/* line 632, ../sass/main.scss */
+#palmaresMainView #palmaresView-photos .palmaresView-photo .photo-selection .photo-title {
+  position: absolute;
+  top: 140px;
+  height: 180 -140px;
+  width: 137px;
+  color: #ffcc33;
+}
+/* line 641, ../sass/main.scss */
+#palmaresMainView #palmaresView-photos .palmaresView-largePhoto {
+  display: inline-block;
+  height: 360px;
+  width: 278px;
+  border: solid 1px white;
+  font-weight: bold;
+}
+/* line 648, ../sass/main.scss */
+#palmaresMainView #palmaresView-photos .palmaresView-largePhoto .photo-image {
+  height: 278px;
+  width: 278px;
+}
+/* line 652, ../sass/main.scss */
+#palmaresMainView #palmaresView-photos .palmaresView-largePhoto .photo-caption {
+  position: relative;
+  top: 0px;
+  line-height: 12px;
+  height: 23px;
+  width: 137px;
+  padding: 2px;
+}
+/* line 660, ../sass/main.scss */
+#palmaresMainView #palmaresView-photos .palmaresView-largePhoto .photo-title {
+  position: relative;
+  top: -28px;
+  height: 180 -140px;
+  width: 137px;
+  color: #ffcc33;
+}
+/* line 668, ../sass/main.scss */
+#palmaresMainView #palmaresView-photos .photo-image.selected {
+  border-color: #ffcc33;
+}
+
+/* line 675, ../sass/main.scss */
+#photoView img {
+  max-width: none;
+}
+/* line 678, ../sass/main.scss */
+#photoView #details {
+  position: absolute;
+  width: 498px;
+  height: 100%;
+  left: 20px;
+  color: white;
+  vertical-align: middle;
+}
+/* line 685, ../sass/main.scss */
+#photoView #details #bigphoto {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 498px;
+  width: 498px;
+}
+/* line 692, ../sass/main.scss */
+#photoView #details #auteur {
+  position: absolute;
+  top: 500px;
+  height: 24px;
+  width: 238px;
+  padding: 5px;
+}
+/* line 699, ../sass/main.scss */
+#photoView #details #lieu {
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 500px;
+  right: 0px;
+  height: 24px;
+  width: 203px;
+  padding: 5px;
+  padding-left: 40px;
+}
+/* line 709, ../sass/main.scss */
+#photoView #details #vote {
+  position: absolute;
+  top: 536px;
+  height: 24px;
+  width: 488px;
+  padding: 5px;
+}
+/* line 716, ../sass/main.scss */
+#photoView #details #infos {
+  position: absolute;
+  top: 572px;
+  width: 488px;
+  bottom: 0px;
+  padding: 5px;
+}
+/* line 723, ../sass/main.scss */
+#photoView #details #infos #spacer {
+  width: 498px;
+  margin-left: -5px;
+  height: 2px;
+  background-color: white;
+}
+/* line 731, ../sass/main.scss */
+#photoView #list-photos {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  right: 0px;
+  width: 495px;
+  overflow: auto;
+}
+/* line 738, ../sass/main.scss */
+#photoView #list-photos .list-photo {
+  display: inline-block;
+  height: 156px;
+  width: 156px;
+  border: solid 1px white;
+  font-weight: bold;
+}
+/* line 744, ../sass/main.scss */
+#photoView #list-photos .list-photo .photo-image {
+  position: absolute;
+  height: 156px;
+  width: 156px;
+}
+/* line 749, ../sass/main.scss */
+#photoView #list-photos .list-photo .photo-border {
+  position: absolute;
+  height: 156px;
+  width: 156px;
+  display: none;
+}
+/* line 755, ../sass/main.scss */
+#photoView #list-photos .list-photo .photo-selection {
+  position: absolute;
+}
+/* line 758, ../sass/main.scss */
+#photoView #list-photos .list-photo .photo-selection.selected .photo-border {
+  display: block;
+  z-index: 50;
+}
+/* line 762, ../sass/main.scss */
+#photoView #list-photos .list-photo .hovertext {
+  position: absolute;
+  display: none;
+  line-height: 156px;
+  width: 156px;
+  height: 156px;
+}
+/* line 768, ../sass/main.scss */
+#photoView #list-photos .list-photo .hovertext div.bloc {
+  width: 156px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 12px;
+  display: inline-block;
+  color: white;
+  font-weight: bold;
+}
+/* line 778, ../sass/main.scss */
+#photoView #list-photos .list-photo .photo-selection:hover .hovertext {
+  display: block;
+  background-color: rgba(0, 0, 0, 0.7);
+  vertical-align: middle;
+}
+/* line 783, ../sass/main.scss */
+#photoView #list-photos .list-photo .photo-caption {
+  position: absolute;
+  top: 128px;
+  line-height: 22px;
+  height: 23px;
+  width: 154px;
+  padding: 2px;
+  z-index: 100;
+}
+
+/**
+ * PALMARES GLOBAL
+ */
+/* line 801, ../sass/main.scss */
+#partageView .jspTrack {
+  background-color: #f39aca;
+}
+/* line 804, ../sass/main.scss */
+#partageView .jspDrag {
+  background-color: #e2007a;
+}
+/* line 808, ../sass/main.scss */
+#partageView #pageTitle {
+  color: #e2007a;
+  padding-left: 580px;
+}
+/* line 813, ../sass/main.scss */
+#partageView #viewHeader {
+  background-color: #e2007a;
+}
+/* line 817, ../sass/main.scss */
+#partageView #viewContent {
+  color: #e2007a;
+}
+/* line 822, ../sass/main.scss */
+#partageView #photoView #auteur, #partageView #photoView #lieu, #partageView #photoView #vote, #partageView #photoView #infos, #partageView #photoView #spacer {
+  background-color: #e2007a;
+}
+/* line 825, ../sass/main.scss */
+#partageView #photoView #lieu {
+  background-image: url("/assets/img/partage/PARTAGE-fichelieu.png");
+}

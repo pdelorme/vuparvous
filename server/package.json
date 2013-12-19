@@ -1,0 +1,27 @@
+{
+  "name": "vuparvous",
+  "description": "Serveur VuParVous",
+  "homepage": "http://vuparvous.com",
+  "version": "0.0.2",
+  "private": true,
+  "main": "server.js",
+  "author": {
+    "name": "Patrice Delorme",
+    "email": "patrice.delorme@gmail.com",
+    "url": "http://vuparvous.com"
+  },
+  "dependencies": {
+    "express": "3.2.4",
+    "nano": "*",
+    "gm": "*",
+    "http-proxy": "*",
+    "jade": "*",
+    "mysql": "*",
+    "xml2js": "*"
+  },
+  "devDependencies": {},
+  "repository": "",
+  "keywords": [
+    "vuparvous"
+  ]
+}

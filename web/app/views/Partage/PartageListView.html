@@ -1,0 +1,49 @@
+ <div id="partageView">
+ 	<div id="viewHeader"></div>
+	<div id="viewContent">
+		<div id="photoView">
+			<div id="details">
+				<img id="bigphoto" src="/imagecache/big/data/images/<%= photo.get('filename') %>"/>
+				<div id="auteur">
+				    Auteur de la photo: <br/>
+					<span id="info-auteur"><%= photo.get("auteur") %></span>
+				</div>
+				<div id="lieu">
+					Lieu :<br/>
+					<span id="info-site-name"><%= photo.get("site_name") %></span>
+				</div>
+				<div id="vote">Votez pour cette photo 
+					<span id="vote-value"><%= photo.get("score_top") %></span>
+				</div>
+				<div id="infos">
+					Palmares Actuel : <span id="info-position"></span><br/>
+					Note Globale :<span id="info-score-top"></span><br/>
+					Détail des votes : 
+						Photo insolite : <span id="info-score-insolite"></span> +
+						Photo de qualité : <span id="info-score-qualite"></span><br/>
+					Commentaire de la photo :<br>
+					<span id="info-commentaire"><%= photo.get("commentaire") %></span>
+					<div id="spacer"></div>
+				</div>
+			</div>
+			<div id="list-photos" class="scrolltab">
+				<% _.forEach(photos, function(thePhoto, index) { %>
+					<div class="list-photo" >
+						<div class="photo-selection photoButton clickable" data-photo-id="<%= photos.at(index).get('id') %>">
+							<img class="photo-border" src="/assets/img/partage/PARTAGE-cadre-photo-selectionnee.png"/>
+							<img class="photo-image" src="/imagecache/vignette/data/images/<%= photos.at(index).get('filename') %>"/>
+							<div class="hovertext">
+								<div class="bloc">
+									Lieu :<br/><br/><%= photos.at(index).get('site_name') %></div>
+								</div>
+							<div class="photo-caption">
+								<div class="score"><%= photos.at(index).get('score_top') %></div>
+							</div>
+						</div>
+							
+					</div>
+				<% }); %>
+			</div>
+		</div>
+	</div>
+</div>

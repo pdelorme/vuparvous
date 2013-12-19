@@ -1,0 +1,69 @@
+		<div id="palmaresMainView">
+			<div id="palmares-header">
+				<div class="palmares-col photos_insolite">
+					<strong>PHOTOS INSOLITES</strong><br/>
+					Elles sont différentes,<br/>
+					surprenantes...
+				</div>
+				<div class="palmares-col photos_qualite">
+					<strong>Photos de qualité</strong><br/>
+					Elles répondes à des critères techniques<br/>
+					Lumière, cadrage...
+				</div>
+				<div class="palmares-col photos_top">
+					<strong>LE TOP LIVRE</strong><br/>
+					Les meilleurs photos (des 2 catégories) éditées dans le livre "Marseille vu par vous"
+				</div>
+			</div>
+			<div id="palmaresView-photos">
+				<div id="photos_qualite" class="photos_qualite palmares-col scrolltab">
+				<% _.each(photosQualite, function (photo, index) { 
+					photo = photosQualite.at(index);
+				%>
+					<div class="palmaresView-photo">
+						<a href="#qualites/<%= photo.get('id') %>" class="photo-selection photoButton" data-photo-id="<%= photo.get('id') %>">
+							<img class="photo-image" src="/imagecache/vignette/data/images/<%= photo.get("filename") %>"/>
+							<div class="photo-caption">
+								<div class="score"><%= photo.get("score_qualite") %></div>
+							</div>
+							<div class="photo-title"><%= photo.get("site_name") %></div>
+						</a>
+					</div>
+				<% }); %>
+				</div>
+				<div id="photos_insolite" class="photos_insolite palmares-col scrolltab">
+				<% _.each(photosInsolite, function (photo, index) { 
+					photo = photosInsolite.at(index);
+				%>
+					<div class="palmaresView-photo">
+						<a href="#insolites/<%= photo.get('id') %>" class="photo-selection photoButton" data-photo-id="<%= photo.get('id') %>">
+							<img class="photo-image" src="/imagecache/vignette/data/images/<%= photo.get("filename") %>"/>
+							<div class="photo-caption">
+								<div class="score"><%= photo.get("score_insolite") %></div>
+							</div>
+							<div class="photo-title"><%= photo.get("site_name") %></div>
+						</a>
+					</div>
+				<% }); %>
+				</div>
+				<div id="photos_top" class="photos_top palmares-col scrolltab">
+				<% _.each(photosTop, function (photo, index) { 
+					photo = photosTop.at(index);
+				%>
+					<div class="palmaresView-largePhoto" id="<%= photo.get("id") %>">
+						<a href="#tops/<%= photo.get('id') %>" class="photo-selection photoButton" data-photo-id="<%= photo.get('id') %>">
+							<img class="photo-image" src="/imagecache/sitehead/data/images/<%= photo.get("filename") %>"/>
+						</a>
+							<div class="photo-caption">
+								<p><strong><%= photo.get("site_name") %></strong><br/>
+								<%= photo.get("auteur") %></p>
+								détail des votes :<br/>
+								photo insolite : <%= photo.get("score_insolite") %><br/>
+								photo de qualité : <%= photo.get("score_qualite") %><br/>
+							</div>
+
+					</div>
+				<% }); %>
+				</div>
+			</div>
+	 	</div>

@@ -1,0 +1,52 @@
+ <div id="partagerMainView" class="partager">
+ 	<div id="menuView" class="hcenter">
+	 		<a href="#pickPhoto" id="filmButton">
+	 			<img src="img/partager/bouton-choisir-photo-passif.png">
+	 		</a>
+	 		<a href="#shootPhoto" id="cameraButton">
+	 			<img src="img/partager/bouton-prendre-photo-passif.png">
+	 		</a>
+	 		<a href="#locate" id="locateButton">
+	 			<img src="img/partager/bouton-carte-passif.png">
+	 		</a>
+ 	</div>
+ 	<div id="viewContent" class="hcenter viewContent">
+ 		<div id="contentWrapper">
+		 	<div id="shared-icon" class="<%= photo.get('shared')?'active':'' %>">
+		 		<img src="img/partager/icone-partage.png">
+		 	</div>
+		 	<div id="activityIndicator" class="centered"></div>
+		 	<div id="photo">
+		 		<img id="partagerPhoto" src="<%= photo.get('userPhoto')?photo.getImageSrc():'img/partager/emplacement-photo.png' %>"/>
+		 	</div>
+		 	<div id="loadingMeter" class="meter animate">
+				<span id="loadingValue" style="width: 10%"><span></span></span>
+			</div>
+		 	<div id="sitename">
+		 		<%= photo.get('site')?photo.get('site').get('site_name'):'' %>
+		 	</div>
+		 	<table>
+		 		<tr>
+		 			<td id="comment">
+		 				<textarea id="commentaire" placeholder="Ecrire un commentaire"><%= photo.get('commentaire') %></textarea>
+		 			</td>
+		 			<td id="sendButton" class="<%= (userPhoto.get('site') && !userPhoto.get('shared'))?'active':'' %>">
+		 				<div>
+		 					<img src="img/partager/bouton-partager-passif.png">
+		 				</div>
+		 			</td>
+		 		</tr>
+		 	</table>
+	 	</div>
+ 	</div>
+ 	<div id="footerView" class="pink-background">
+ 		
+	 	<% if(!appModel.get('currentUser').get('logged')){ %>
+	 		<p>Veuillez vous connecter pour partager une photo.</p>
+	 	<% } else { 
+	 		if(photo.get('userPhoto') && !photo.get('site')) { %>
+	 			<p>Veuillez préciser le lieu photographié en utilisant la carte.</p>
+	 		<% }
+	 	} %>
+ 	</div>
+</div>

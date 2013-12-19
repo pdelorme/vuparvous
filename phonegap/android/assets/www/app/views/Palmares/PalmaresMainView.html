@@ -1,0 +1,59 @@
+ <div id="palmaresMainView" class="palmares">
+ 	<div id="menuView" class="hcenter">
+	 	<img src="img/palmares/icone-photos.png">
+	 	<div id="menuInfo">
+	 		<div>
+	 			<p>PALAMARES DE <%= user.get('first_name')+' '+user.get('last_name') %></p>
+	 			<p><%= photos?photos.length:0 %> PHOTOS PARTAGéES</p>
+	 			<p><%= sites?sites.length:0 %> SITES VISITéES</p>
+	 		</div>
+	 	</div>
+ 	</div>
+ 	<div id="photos" class="hcenter viewContent">
+ 		<div id="photosContainer">
+		 	<% if(photos && photos.length>0) { %>
+		 		<% _.each(photos, function(photo, index) { 
+					photo = photos.at(index); %>
+		 			<a href="#palmaresPhoto/<%= photo.get('photo_id') %>">
+			 			<div class="photoWrapper siteButton" data-site_id="<%= photo.get('photo_id') %>">
+			 				<div class="photo">
+			 					<img id="photo_<%= photo.get('id') %>" src="<%= photo.getImageSrc('vignette','#photo_'+photo.get('id')) %>" class="loading">
+			 					
+			 				</div>
+			 				<div class="sitename">
+			 					<div class="bottom">
+			 						<%= photo.get('site_name') %>
+			 					</div>
+			 				</div>
+			 				<div class="caption">
+			 					note actuelle <strong><%= photo.get('score_top') %></strong>
+			 				</div>
+			 			</div>
+		 			</a>
+		 		<% }) %>
+	 		<% } else { %>
+	 			<div class="photoWrapper">
+	 				<div class="photo">
+	 					<div class="text">Aucune photo partagée actuellement</div>
+	 				</div>
+	 				<div class="sitename">
+			 		</div>
+	 				<div class="caption">
+	 				</div>
+	 			</div>
+	 			<div class="photoWrapper">
+	 				<div class="photo light">
+	 				</div>
+	 				<div class="caption light">
+	 				</div>
+	 			</div>
+	 			<div class="photoWrapper">
+	 				<div class="photo lighter">
+	 				</div>
+	 				<div class="caption lighter">
+	 				</div>
+	 			</div>
+	 		<% }%>
+ 		</div>
+ 	</div>
+</div>

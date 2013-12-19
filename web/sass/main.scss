@@ -1,0 +1,831 @@
+$green:rgb(0,144,54);
+$green-light:rgb(154,211,176);
+$pink:rgb(226,0,122);
+$pink-light:rgb(243,154,202);
+$yellow:rgb(255,204,51);
+$yellow-light:rgb(252,243,152);
+$red:red;
+$black-font:rgb(54,54,54);
+$gray-font:rgb(191,191,191);
+$debug:red;
+$debugBorder: solid 1px $red;
+
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+body {
+	padding-top: 50px;
+}
+
+.color-green { color:$green; }
+.color-pink  { color:$pink;  }
+.color-yellow{ color:$yellow;}
+.color-white { color:white; }
+.color-black { color:$black-font; }
+
+.navbar .container {
+width: 1004px;
+}
+
+.navbar-inner {
+	height:50px;
+	line-height:30px;
+}
+.navbar-inner li {
+	line-height:30px;
+	font-weight: bold;
+}
+
+.navbar .brand, .navbar .nav>li>a {
+	padding-top:1px;
+}
+
+.jspVerticalBar {
+	width: 16px;
+}
+.jspHorizontalBar{
+	height: 16px;
+}
+
+.button, .clickable {
+	cursor: pointer;
+}
+
+.score {
+	background-color: rgba(0, 0, 0, 0.5);
+	-moz-border-radius:12px;
+	-webkit-border-radius:12px;
+	border-radius:12px;
+	border:2px solid white;
+	display:inline-block;
+	color:white;
+	font-family:arial;
+	font-size:12px;
+	line-height:12px;
+	font-weight:bold;
+	padding:3px 3px;
+	z-index: 100;
+	float:left;
+}
+
+.photo-icon {
+	height:22px;
+	//width:22px;
+	float:left;
+	line-height:22px;
+	padding-left:2px;
+	img {
+		height:22px;
+		width:22px;
+	}
+}
+
+label, input, button, select, textarea {
+	font-size: 12px;
+	font-weight: bold;
+	line-height: 13px;
+}
+input[type="checkbox"] {
+    display:none;
+}
+input[type="checkbox"] + label {
+    display:inline-block;
+    //width:19px;
+    min-height:25px;
+    padding-left:25px;
+    padding-top:5px;
+    margin:-1px 4px 0 0;
+    vertical-align:middle;
+    background:url("/assets/img/checkbox-unchecked.png") left top no-repeat;
+    cursor:pointer;
+}
+input[type="checkbox"]:checked + label {
+    background:url("/assets/img/checkbox-checked.png") left top no-repeat;
+}
+
+/* .vote-button {
+    border: none;
+    background: url('/assets/img/je-vote.png') no-repeat top left;
+    padding: 2px 8px;
+    height:36px;
+    width:48px;
+} */
+
+.vote-button {
+    border: none;
+	// line-height:36px;
+    padding-top:40px;
+    // height:36px;
+    width:48px;
+    text-align:center;
+    cursor:pointer;
+}
+#votez {
+	 background: url('/assets/img/votez-grise.png') no-repeat top center;
+	 background-size:40px 40px;
+}
+#voter {
+	 background: url('/assets/img/voter-blanc.png') no-repeat top center;
+	 background-size:40px 40px;
+}
+#vote-ok {
+	 background: url('/assets/img/vote-ok.png') no-repeat top center;
+	 background-size:40px 40px;
+}
+
+/* input[type=checkbox].css-checkbox {
+	display:none;
+}
+
+input[type=checkbox].css-checkbox + label.css-label {
+	padding-left:20px;
+	height:15px; 
+	display:inline-block;
+	line-height:15px;
+	background-repeat:no-repeat;
+	background-position: 0 0;
+	font-size:15px;
+	vertical-align:middle;
+	cursor:pointer;
+}
+
+input[type=checkbox].css-checkbox:checked + label.css-label {
+	background-position: 0 -15px;
+}
+
+.css-label{
+	background-image:url(http://csscheckbox.com/checkboxes/dark-check-green.png);
+}
+ */						
+
+
+#profileInfo {
+	width:150px;
+	line-height: 50px;
+	height:50px;
+	//padding-top:4px;
+	#userInfo {
+		width:115px;
+		font-size: 12px;
+		line-height: 12px;
+		//font-weight: normal;
+		color:$gray-font;
+		//float:left;
+		text-align:right;
+		vertical-align:middle;
+		display: inline-block;
+	}
+	#profileButton {
+		width:30px;
+		float:right;
+	}
+}
+
+// backbone hidden templates. 
+.template {
+	display:none;
+}
+/**
+ * GLOBAL
+ */
+// page container.
+.container {
+	width:1024px;	
+	margin-left:auto;
+	margin-right:auto;
+}
+
+#pageHeader{
+	position:fixed;
+	height:50px;
+	left:0px;
+	right:0px;
+	top:0px;
+	width:100%;
+	background-color: black;
+	z-index:1050;
+	.navbar {
+		//margin-top:10px;
+		.brand {
+			
+		}
+		ul{
+			text-align:right;
+		  	display: inline-block;
+			list-style: none;	
+			li {
+				display: inline;
+			}	
+		}
+	}
+}
+
+/**
+ * CONTENT LEVEL
+ */
+#viewHeader{
+	position:absolute;
+	color:white;
+	font-weight: bold;
+	top: 50px;
+	height: 50px;
+	width: 100%;
+	padding-left:10px;
+	left:0px;
+	right:0px;
+	.title {
+		position:relative;
+		line-height:50px;
+		left:297px;
+		color:white;
+		font-size: 14px;
+		font-weight: bold;
+	}
+	#pageTitle {
+		position:absolute;
+		top:-12px;
+		height:12px;
+		width:400px;
+		padding-left:400px;
+		font-size: 10px;
+		line-height: 12px;
+		font-style: normal;
+		font-weight:bold;
+		text-transform:uppercase;
+		color:black;
+		z-index:1100;
+	}
+}
+
+#viewContent {
+	position: absolute;
+	top: 110px;
+	bottom:0px;
+	width:1024px;
+
+	text-transform: uppercase;
+	font-size: 11px;
+	line-height: 13px;
+	font-weight: bold;
+	strong {
+		text-decoration: underline;
+	}
+}
+
+#viewFooter{
+	position:fixed;
+	height:33px;
+	left:0px;
+	right:0px;
+	bottom:0px;
+	width:100%;
+	background-color: black;
+	line-height:33px;
+	font-size: 13px;
+	font-weight: bold;
+	font-style:italic;
+	text-transform: none;
+	text-decoration: none;
+	strong {
+		text-transform: uppercase;
+		text-decoration: none;
+	}
+	span {
+		padding:5px;
+	}
+}
+
+/**
+ * HOME VIEW
+ */
+#homeView {
+	width:1004px;
+	margin-left:10px;
+	margin-right:10px;
+	#homeCarousel{
+		width:1004px;
+		height:571px;
+	}
+}
+
+/**
+ * DECOUVRIR PHOTOS VIEW
+ */
+#decouvrirView{
+	#viewHeader	{
+		background-color:$green;
+	}
+
+	.jspTrack{
+		background-color:$green-light;
+	}
+	.jspDrag{
+		background-color: $green;
+	}
+	#pageTitle{
+		color:$green;
+		padding-left:420px;
+	}
+	
+	#viewContent{
+		color:$green;
+		bottom:33px;
+	}
+	.image-button{
+		padding-top:4px; //position fix.
+	}
+	#viewTitle {
+		display: none;
+	}
+	#viewTitle.visible{
+		display:block;
+		position:absolute;
+		bottom:0px;
+		margin-left:300px;
+		width:500px;
+		height:50px;
+		// background-color: red;
+		vertical-align: bottom;
+		
+	}
+}
+
+#sitesView {
+	position:absolute;
+	overflow:auto;
+	left:10px;
+	top:0px;
+	bottom:0px;
+	.site-summary {
+		display:inline-table;
+		height:179px;
+		width:138px;
+		margin:0px;
+		position:relative;
+		
+		.site-photo {
+			height:138px;
+			width:138px;
+			img {
+				height:138px;
+				width:138px;
+			}
+		}
+		.site-caption{
+			position:absolute;
+			top:138 - 28px;
+			line-height: 22px;
+			height:23px;
+			width:138 - 2px;
+			padding:2px;
+		}
+		.site-name {
+			background-color: white;
+			font-weight:bold;
+			color:green;
+			height:40px;
+			width:138px;
+		}
+	}
+
+}
+
+/**
+ * DECOUVRIR MAP VIEW
+ */
+#decouvrirMapView {
+	#mapContainer {
+		position:relative;
+		//width:100%;
+		//top:50px;
+		//bottom:50px;
+		//height:500px;
+		//width:1170px;
+		left:0px;
+		right:auto;
+		height:800px;
+	}
+}
+
+/**
+ * DECOUVRIR SITE VIEW
+ */
+
+#siteView-wrapper {
+	position:absolute;
+
+	#siteView-photo {
+		position:absolute;
+		top:10px;
+		left:10px;
+		width:279px;
+		height:279px;
+		z-index: 500;
+	}
+	#siteView-descriptif{
+		position:absolute;
+		top:10px;
+		left:297px;
+		width:413px;
+		height:193px;
+		background-color:$green;
+		color:white;
+		font-weight: bold;
+		
+		.scrolltab {
+			margin:10px;
+			height:173px;
+			overflow: auto;
+		}
+	}
+	#siteView-map {
+		position:absolute;
+		top:10px;
+		left:721px;
+		width:271px;
+		height:193px;
+	}
+
+	#siteView-infobar{
+		position:absolute;
+		top:211px;
+		left:0px;
+		width: 1024 - 297px;
+		height:77 - 10px;
+		background-color:$green;
+		font-weight: bold;
+		color:white;
+		padding:5px;
+		padding-left:297px;
+		font-size:12px;
+		line-height:14px;
+		
+		div {
+			display:inline-block;
+			vertical-align: top;
+		}
+		#infobar-1{
+			width:60px;
+		}
+		#infobar-2{
+			margin-top:5px;
+			width:150px;
+		}
+		#infobar-3{
+			width:70px;
+		}
+		#infobar-4{
+			font-style:italic;
+			width:200px;
+		}
+		#infobar-5{
+			font-style:italic;
+			width:200px;
+		}
+	}
+	
+	#siteView-photos{
+		position:absolute;
+		top:297px;
+		left:10px;
+		width:1014 - 20px;
+		.photo-selection{
+			display:inline-block;
+			height:139px;
+			width:139px;
+			border:solid 1px white;
+			.photo-image{
+				height:139px;
+				width:139px;
+			}
+			.photo-caption{
+				position:absolute;
+				top:139 - 28px;
+				line-height: 22px;
+				height:23px;
+				width:139 - 2px;
+				padding:2px;
+				z-index:100;
+			}
+		}
+		
+		.photo-border{
+			position:absolute;
+			height:139px;
+			width:139px;
+			display:none;
+		}
+
+		.photo-selection.selected .photo-border{
+			display:block;
+			z-index:50;
+		}
+		
+	}
+}
+	
+/**
+ * PALMARES GLOBAL
+ */
+#palmaresView{
+	.jspTrack{
+		background-color:$yellow-light;
+	}
+	.jspDrag{
+		background-color: $yellow;
+	}
+
+	#pageTitle{
+		color:$yellow;
+		padding-left:745px;
+	}
+
+	.palmares-col {
+		position:absolute;
+		width:302px;
+	}
+
+	.palmares-col.photos_qualite {
+		left:20px;
+	}
+	.palmares-col.photos_insolite{
+		left:370px;
+	}
+	.palmares-col.photos_top{
+		left:720px;
+	}
+
+	.photo-title {
+		color:$yellow;
+	}
+	#photoView {
+		#auteur, #lieu, #vote, #infos{
+			background-color: $yellow;
+		}
+		#lieu{
+			background-image:url("/assets/img/palmares/PALMARES-fichelieu.png");
+		}
+	}
+	#viewHeader{
+		background-color:$yellow;
+		.palmares-col {
+			height: 40px;
+			margin-top: 5px;
+			font-size: 12px;
+			font-weight: bold;
+		}
+	}
+	#viewContent{
+		color:$yellow;
+	}
+}
+
+#palmaresViewHeader {
+	position:absolute;
+}
+
+#palmaresMainView {
+
+	#palmares-header {
+		position:relative;
+		height:40px;
+		.photos_top {
+			text-align: center;
+		}
+	}
+		
+	#palmaresView-photos {
+		top: 50px;
+		position: absolute;
+		bottom: 0px;
+		width: 100%;
+
+		.palmares-col {
+			position:absolute;
+			overflow:auto;
+			top:0px;
+			bottom:0px;
+		}
+		.palmaresView-photo{
+			display:inline-block;
+			height:180px;
+			width:139px;
+			border:solid 1px white;
+			font-weight:bold;
+			
+			.photo-selection {
+				position:absolute;
+				.photo-image{
+					height:139px;
+					width:139px;
+				}
+				.photo-caption{
+					position:absolute;
+					top:139 - 28px;
+					line-height: 22px;
+					height:23px;
+					width:139 - 2px;
+					padding:2px;
+				}
+				.photo-title{
+					position:absolute;
+					top:140px;
+					height:180-140px;
+					width:139 - 2px;
+					color:$yellow;
+				}
+			}
+		}
+		.palmaresView-largePhoto{
+			display:inline-block;
+			height:360px;
+			width:278px;
+			border:solid 1px white;
+
+			font-weight:bold;
+			.photo-image{
+				height:278px;
+				width:278px;
+			}
+			.photo-caption{
+				position:relative;
+				top:0px;
+				line-height: 12px;
+				height:23px;
+				width:139 - 2px;
+				padding:2px;
+			}
+			.photo-title{
+				position:relative;
+				top:-28px;
+				height:180-140px;
+				width:139 - 2px;
+				color:$yellow;
+			}
+		}
+		.photo-image.selected{
+			border-color:$yellow;
+		}
+	}
+}
+
+#photoView {
+	img{
+		max-width:none;
+	}
+	#details {
+		position:absolute;
+		width:498px;
+		height:100%;
+		left:20px;
+		color:white;
+		vertical-align:middle;
+		#bigphoto{
+			position:absolute;
+			top:0px;
+			left:0px;
+			height:498px;
+			width:498px;
+		}
+		#auteur{
+			position:absolute;
+			top:498+2px;
+			height:34 - 10px;
+			width:498/2 - 10 - 1px;
+			padding:5px;
+		}
+		#lieu{
+			background-repeat:no-repeat;
+			position:absolute;
+			top:498+2px;
+			right:0px;
+			height:34 - 10px;
+			width:498/2 - 5 - 1 - 40px;
+			padding:5px;
+			padding-left:40px;
+		}
+		#vote{
+			position:absolute;
+			top:498+2+34+2px;
+			height:34 - 10px;
+			width:498 - 10px;
+			padding:5px;
+		}
+		#infos{
+			position:absolute;
+			top:498+2+34+2+34+2px;
+			width:498 - 10px;
+			//height:80 - 10px;
+			bottom:0px;
+			padding:5px;
+			#spacer{
+				width:498px;
+				margin-left:-5px;
+				height:2px;
+				background-color:white;
+			}
+	}
+	}
+	#list-photos{
+		position:absolute;
+		top:0px;
+		bottom:0px;
+		right:0px;
+		width:495px;
+		overflow: auto;
+		.list-photo{
+			display:inline-block;
+			height:156px;
+			width:156px;
+			border:solid 1px white;
+			font-weight:bold;
+			.photo-image{
+				position:absolute;
+				height:156px;
+				width:156px;
+			}
+			.photo-border{
+				position:absolute;
+				height:156px;
+				width:156px;
+				display:none;
+			}
+			.photo-selection{
+				position:absolute;
+			}
+			.photo-selection.selected .photo-border{
+				display:block;
+				z-index:50;
+			}
+			.hovertext { 
+				position: absolute; 
+				display: none; 
+				line-height:156px;
+				width: 156px; 
+				height: 156px; 
+				div.bloc {
+					width:156px;
+				  	text-align:center;
+				  	vertical-align:middle;
+				  	line-height:12px;
+				  	display:inline-block;
+				  	color:white;
+					font-weight:bold;
+				}
+			}
+			.photo-selection:hover .hovertext { 
+				display: block; 
+				background-color:rgba(0, 0, 0, 0.7); 				
+				vertical-align: middle;
+			}
+			.photo-caption{
+				position:absolute;
+				top:156 - 28px;
+				line-height: 22px;
+				height:23px;
+				width:156 - 2px;
+				padding:2px;
+				z-index:100;
+			}
+		}
+	}
+}
+
+
+/**
+ * PALMARES GLOBAL
+ */
+#partageView{
+	.jspTrack{
+		background-color:$pink-light;
+	}
+	.jspDrag{
+		background-color: $pink;
+	}
+	
+	#pageTitle{
+		color:$pink;
+		padding-left:580px;
+	}
+	
+	#viewHeader{
+		background-color:$pink;		
+	}
+
+	#viewContent {
+		color:$pink;
+	}
+	
+	#photoView {
+		#auteur, #lieu, #vote, #infos, #spacer{
+			background-color: $pink;
+		}
+		#lieu{
+			background-image:url("/assets/img/partage/PARTAGE-fichelieu.png");
+		}
+	}
+
+}
+

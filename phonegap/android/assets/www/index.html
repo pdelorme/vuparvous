@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+		<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width"/>
+		
+	    <link rel="stylesheet" href="libs/app-ui/viewnavigator/viewnavigator.css" type="text/css" />
+	    <link rel="stylesheet" href="libs/css/activityIndicator.css" type="text/css" />
+	    <link rel="stylesheet" href="libs/leaflet/leaflet.css" type="text/css" />
+	    <link rel="stylesheet" href="libs/bootstrap/css/bootstrap.css" type="text/css" />
+	    <!-- link rel="stylesheet" href="libs/bootstrap/css/bootstrap-responsive.css" type="text/css" / -->
+	    <!-- link rel="stylesheet" href="assets/styles.css" type="text/css" / -->
+
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <link rel="stylesheet" type="text/css" href="css/vuparvous.css" />
+        <title>VuParVous</title>
+    </head>
+
+<body>
+	<div id="activityIndicator" class="centered running"></div>
+ 	<div id="headerView"></div>
+    <div id="contentView">
+		<div class="background">
+			<img src="img/home/02-photo-fond.jpg" class="fullscreen">
+		</div>
+    </div>
+	<div id="footerView">
+	</div>    
+
+</body>
+    
+<!-- LIBS -->
+<script src="libs/zepto.min.js"></script>
+<script src="libs/iscroll.js"></script>
+<script src="libs/underscore-1.4.4.min.js"></script>
+<script src="libs/backbone-1.0.0.min.js"></script>
+
+<script src="libs/noClickDelay.js"></script>
+<script src="libs/geo.js"></script>
+<script src="libs/leaflet/leaflet.js"></script>
+
+<script src="cordova.js"></script>
+
+<!-- APP SCRIPTS -->
+<script src="config.js"></script>
+<script src="app/TemplateManager.js"></script>
+<script src="app/models/ObjectModels.js"></script>
+<script src="app/models/api_client.js"></script>
+<script src="app/views/BaseView.js"></script>
+
+<script src="app/views/Fragments/HeaderView.js"></script>
+<script src="app/views/HomeView.js"></script>
+<script src="app/views/Decouvrir/DecouvrirPhotosView.js"></script>
+<script src="app/views/Decouvrir/DecouvrirSiteView.js"></script>
+<script src="app/views/Decouvrir/DecouvrirPhotoView.js"></script>
+<script src="app/views/Decouvrir/DecouvrirListView.js"></script>
+<script src="app/views/Decouvrir/DecouvrirMapView.js"></script>
+<script src="app/views/Decouvrir/DecouvrirPhotoView.js"></script>
+
+<script src="app/views/Partager/PartagerMainView.js"></script>
+<script src="app/views/Partager/PartagerMapView.js"></script> 
+
+<script src="app/views/Palmares/PalmaresMainView.js"></script>
+<script src="app/views/Palmares/PalmaresPhotoView.js"></script>
+
+<!-- -->
+<script src="app/views/Global/ConceptView.js"></script>
+<script src="app/views/Connexion/CGUView.js"></script>
+<script src="app/views/Connexion/RegisterView.js"></script>
+<script src="app/views/Connexion/LoginView.js"></script>
+<!-- -->
+
+
+<script src="app/util/randomUUID.js"></script>
+<script src="app/util/MobileViewNavigator.js"></script>
+<script src="app/util/NativeUtil.js"></script>
+<script src="app/util/GeoWatcher.js"></script>
+<script src="app/util/HTMLUtil.js"></script>
+
+<script src="app/main.js"></script>
+</html>

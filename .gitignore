@@ -1,0 +1,8 @@
+/phonegap/android/bin/
+/phonegap/android/cordova/
+imagecache/
+node_modules/
+/phonegap/android/assets/www/cordova-2.8.0.js
+/phonegap/android/assets/www/cordova.js
+/server/config.js 
+web/data/images

@@ -1,0 +1,48 @@
+<div id="sitesView" class="scrolltab">
+	<div id="sites-table">
+		<% _.each(sites, function(site, index) { 
+			site = sites.at(index);
+			for(var i=0;i<1;i++){
+		%> 
+ 		<div class="site-summary siteButton" data-site_id="<%= site.get('site_id') %>">
+			<div class="clickable">
+				<div class="site-photo">
+					<img src="/imagecache/vignette/data/images/<%= site.get('photo').filename %>"/>
+				</div>
+				<div class="site-caption">
+					<div class="score"><%= site.get('photo').score_insolite + site.get('photo').score_qualite %></div>
+					<div class="statut photo-icon">
+						<% if(currentUser.get("logged")) {
+						   statut = currentUser.getStatus(site.get('site_id'));
+							if(statut == 'visited') { %>
+							<img class="icon_visited" src="/assets/img/icon_visité.png"/>
+						<% 	} else if(statut == 'shared') { %>
+							<img class="icon_shared" src="/assets/img/icon_partagé.png"/>
+						<%  } else { %>
+							<img class="icon_tovisit" src="/assets/img/icon_adécouvrir.png"/>
+						<%  } } %>
+					</div>
+					<% if(site.get('category')) { %>
+						<div class="photo-icon"><img src="/assets/img/icon_<%= site.get('category') %>.png"/></div>
+					<% } %>
+				</div>
+				<div class="site-name">
+					<%= site.get('site_name') %>
+				</div>
+			</div>
+		</div>		
+	<% } }); %>
+	</div>
+</div>
+<div id="viewFooter" class="black-background">
+	<div class="container">
+		<span><strong>Lieux</strong></span>
+	    <span class="color-white"><div class="score" style="float:none">50</div> note globale &nbsp;</span>
+		<% if(currentUser.get("logged")) { %>
+		<span class="color-green"><img src="/assets/img/icon_adécouvrir.png"/> à découvrir</span>
+		<span class="color-white"><img src="/assets/img/icon_visité.png"/> déjà visités</span>
+		<span class="color-pink"><img src="/assets/img/icon_partagé.png"/> partagés</span>
+		<% } %>
+		<span class="color-pink"><img src="/assets/img/icon_mp13.png"/> marseille-provence 2013</span>
+	</div>
+</div>

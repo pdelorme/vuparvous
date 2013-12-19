@@ -1,0 +1,61 @@
+ <div id="loginView" class="connexion">
+  	<div id="menuView" class="hcenter">
+		<% if(currentUser && currentUser.get('logged')) { %>
+	 		<a href="#login" id="loginButton">
+	 			<img src="img/connexion/15-monprofil-actif.png">
+	 		</a>
+	 	<% } else { %>
+	 		<a href="#login" id="loginButton">
+	 			<img src="img/connexion/15-seconnecter-actif.png">
+	 		</a>
+	 		<a href="#register" id="registerButton">
+	 			<img src="img/connexion/15-creerprofil-passif.png">
+	 		</a>
+	 	<% } %>
+ 		<a href="#cgu" id="cgButton">
+ 			<img src="img/connexion/15-cgu-passif.png">
+ 		</a>
+ 	</div>
+	<% if(currentUser && currentUser.get('logged')) { %>
+    	<div id="profil">
+           <table>
+            	<tr>
+            		<td class="col1"><label>Identifiant</label></td>
+					<td class="col2"><%= currentUser.get('login') %></td>
+				</tr><tr>
+					<td class="col1"><label>Nom</label></td>
+					<td class="col2"><%= currentUser.getName() %></td>
+				</tr><tr>
+					<td class="col1"><label>Email</label></td>
+					<td class="col2"><%= currentUser.get('email') %></td>
+				</tr><tr>
+					<td class="col1"><label>Votes</label></td>
+					<td class="col2"><%= currentUser.get('votes').length %></td>
+				</tr>
+				<tr><td></td>
+					<td class="col3"><div id="logoutButton" class="button">Déconnexion</div></td>
+				</tr>
+           	</table>
+       	</div>
+	<% } else { %>
+    	<div id="login">
+           	<table>
+            	<tr>
+            		<td class="col1"><label for="inputLogin">Identifiant</label></td>
+					<td class="col2"><input type="text" id="inputLogin" placeholder="identifiant/Email" value="<%= currentUser.get('login') %>"></td>
+				</tr><tr>
+					<td class="col1"><label class="control-label" for="inputPassword">Mot de passe</label></td>
+					<td class="col2"><input type="password" id="inputPassword" placeholder="Password"></td>
+				</tr>
+				<tr><td></td>
+					<td class="col2"><label class="checkbox"><input type="checkbox" id="cgu"> j'accepte les CGU</label></td>
+				</tr>
+				<tr><td></td>
+					<td class="col2">
+						<div id="activityIndicator" class="centered"></div>
+						<div id="doLoginButton" class="button">Connexion</div></td>
+				</tr>
+			</table>
+		</div>
+	<% } %>
+</div>

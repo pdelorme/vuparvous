@@ -1,0 +1,205 @@
+<!-- 
+ le top des photos insolites par site.
+ -->
+<queries>
+	<create_table_sites>
+		CREATE  TABLE sites (
+		  site_id INT NOT NULL AUTO_INCREMENT,
+		  site_name VARCHAR(100) NULL ,
+		  description_fr LONGTEXT NULL ,
+		  description_en LONGTEXT NULL ,
+		  latitude DOUBLE NULL ,
+		  longitude DOUBLE NULL ,
+		  category VARCHAR(4) NULL
+		  PRIMARY KEY (site_id) 
+		);
+	</create_table_sites>
+	<create_table_photos>
+		CREATE  TABLE photos (
+		  photo_id INT NOT NULL AUTO_INCREMENT,
+		  site_id INT NULL ,
+		  filename VARCHAR(45) NULL ,
+		  score_insolite INT NULL ,
+		  score_qualite INT NULL ,
+		  commentaire VARCHAR(1000) NULL ,
+		  auteur VARCHAR(45) NULL ,
+		  PRIMARY KEY (photo_id) 
+		);
+	</create_table_photos>
+	<create_table_users>
+		CREATE  TABLE users (
+		  user_id INT NOT NULL AUTO_INCREMENT,
+		  login VARCHAR(15) NOT NULL ,
+		  password VARCHAR(45) NULL ,
+		  first_name VARCHAR(45) NULL ,
+		  last_name VARCHAR(45) NULL ,
+		  email VARCHAR(45) NULL ,
+		  PRIMARY KEY (user_id) ,
+		  UNIQUE INDEX login_UNIQUE (login ASC) 
+		);
+	</create_table_users>
+	<create_table_votes>
+        CREATE TABLE votes (
+			user_login VARCHAR(15) NOT NULL,
+			photo_id INT NOT NULL,
+			vote_insolite INT NULL,
+			vote_qualite INT NULL,
+			vote_date DATETIME NOT NULL,
+			PRIMARY KEY (login,photo_id)
+		);
+	</create_table_votes>
+	<create_table_visits>
+		CREATE TABLE visits (
+			user_login VARCHAR(15) NOT NULL,
+			site_id INT NOT NULL,
+			visit_date DATETIME,
+			PRIMARY KEY (login,site_id)
+		);
+	</create_table_visits>
+	<create_view_photos_score>
+		CREATE VIEW photos_score AS
+		SELECT photos.photo_id, photos.filename,photos.auteur,photos.commentaire, 
+               sites.site_id, sites.site_name, 
+               photos.score_insolite + coalesce(sum(votes.vote_insolite),0) as score_insolite,
+               photos.score_qualite + coalesce(sum(votes.vote_qualite),0) as score_qualite
+		  FROM photos
+          LEFT JOIN votes ON votes.photo_id = photos.photo_id,
+		  	   sites
+		 WHERE photos.site_id = sites.site_id
+         GROUP BY photos.photo_id, photos.filename,photos.auteur,photos.commentaire,
+                  sites.site_id, sites.site_name, 
+                  photos.score_qualite, photos.score_insolite
+	</create_view_photos_score>
+	<create_view_sites_score>
+		CREATE VIEW sites_score AS
+		SELECT sites.*, photos_score.* 
+		  FROM sites,
+		       photos_score, (
+		    SELECT photos_score.site_id, min(photos_score.photo_id) as photo_id
+		      FROM photos_score,(
+		        SELECT photos_score.site_id, max(score_insolite+score_qualite) AS score
+		          FROM photos_score
+		         GROUP BY photos_score.site_id) A
+		     WHERE photos_score.site_id = A.site_id
+		       AND photos_score.score_insolite+photos_score.score_qualite = A.score
+		     GROUP BY photos_score.site_id) B
+		  WHERE sites.site_id = photos_score.site_id
+		    AND photos_score.photo_id = B.photo_id	
+	</create_view_sites_score>
+	<!-- la premiere photo (selon score_insolite+score_qualite et id) par sites -->
+	<select_sites>
+SELECT sites.site_id, sites.site_name, sites.description_fr, sites.description_en, sites.latitude, sites.longitude, sites.category,
+       photos.photo_id, photos.filename, site_score.score_insolite, site_score.score_qualite, photos.commentaire, photos.auteur
+	   FROM sites
+ LEFT JOIN (
+    -- site score
+	SELECT photos.site_id, 
+	       coalesce(sum(vote_insolite),0) score_insolite, 
+		   coalesce(sum(vote_qualite),0) score_qualite
+      FROM photos
+	  LEFT JOIN votes ON votes.photo_id = photos.photo_id
+     GROUP BY photos.site_id
+  ) AS site_score ON sites.site_id = site_score.site_id
+ LEFT JOIN (
+	SELECT photo_score.site_id AS site_id, min(photo_score.photo_id) AS photo_id
+	  FROM (
+		SELECT site_id, max(score_insolite + score_qualite) score
+		  FROM photos_score
+		  GROUP BY site_id
+	  ) AS max_score
+	  JOIN (
+		SELECT site_id, photo_id, score_insolite + score_qualite score
+		FROM photos_score
+	  ) AS photo_score ON photo_score.score = max_score.score AND photo_score.site_id = max_score.site_id
+	  GROUP BY photo_score.site_id
+) AS site_photo ON sites.site_id = site_photo.site_id
+JOIN photos ON site_photo.photo_id = photos.photo_id 
+   	</select_sites>
+	<select_site_photos>
+		SELECT photos_score.*
+		  FROM photos_score
+		 WHERE photos_score.site_id = ':site_id'
+	</select_site_photos>
+	<select_photos_qualite>
+		SELECT photos_score.*, sites.site_name
+		  FROM photos_score,
+		  	   sites
+		 WHERE photos_score.site_id = sites.site_id
+		 ORDER BY score_qualite desc
+		 LIMIT 20
+	</select_photos_qualite>
+	<select_photos_insolite>
+		select photos_score.*, sites.site_name
+		  from photos_score,
+		  	   sites
+		 where photos_score.site_id = sites.site_id
+		 order by score_insolite desc
+		 limit 20
+	</select_photos_insolite>
+	<select_photos_top>
+		select photos_score.*, sites.site_name
+		  from photos_score,
+		  	   sites
+		 where photos_score.site_id = sites.site_id
+		 order by score_insolite+score_qualite desc
+		 limit 20
+	</select_photos_top>
+
+	<select_user>
+		select users.*
+		  from users
+		 where users.login = ':login'
+	</select_user>
+	<update_user>
+		UPDATE users
+		   SET password   = coalesce(':password'  , password ),
+		       email      = coalesce(':email'     , email ),
+		       first_name = coalesce(':first_name', first_name ),
+		       last_name  = coalesce(':first_name', last_name )
+		 WHERE login = ':login'
+	</update_user>
+	<insert_user>
+		INSERT INTO users set ?
+	</insert_user>
+	<select_user_photos>
+		select photos.*, sites.site_name
+		  from photos,
+		  	   sites
+		 where photos.site_id = sites.site_id
+		   and photos.auteur = ':login'
+	</select_user_photos>
+	<select_user_votes>
+		select votes.*
+		  from votes
+		 where votes.user_login = ':login'
+	</select_user_votes>
+	<select_user_visits>
+		select visits.*
+		  from visits
+		 where visits.user_login = ':login'
+	</select_user_visits>
+	<update_user_vote>
+		INSERT votes 
+			(user_login, photo_id, vote_insolite, vote_qualite, vote_date) 
+		VALUES
+			(':login',':photo_id', :vote_insolite, :vote_qualite, now()) 
+		ON DUPLICATE KEY UPDATE 
+			vote_insolite=:vote_insolite, 
+			vote_qualite=:vote_qualite,
+			vote_date = now();
+	</update_user_vote>
+	<update_user_visit>
+		INSERT visits 
+			(user_login, site_id, visit_date) 
+		VALUES
+			(':login',':site_id', now()) 
+		ON DUPLICATE KEY UPDATE 
+			visit_date = now();
+	</update_user_visit>
+	<insert_photo>
+		INSERT INTO photos 
+			(auteur, site_id, filename, score_insolite, score_qualite, commentaire)
+		VALUES
+		    (':auteur',':site_id',':filename',0,0,':commentaire')
+	</insert_photo>
+</queries>

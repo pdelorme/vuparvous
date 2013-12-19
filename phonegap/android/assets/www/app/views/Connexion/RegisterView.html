@@ -1,0 +1,53 @@
+ <div id="registerView" class="connexion">
+  	<div id="menuView" class="hcenter">
+		<% if(currentUser && currentUser.get('logged')) { %>
+	 		<a href="#login" id="loginButton">
+	 			<img src="img/connexion/15-monprofil-passif.png">
+	 		</a>
+	 	<% } else { %>
+	 		<a href="#login" id="loginButton">
+	 			<img src="img/connexion/15-seconnecter-passif.png">
+	 		</a>
+	 		<a href="#register" id="registerButton">
+	 			<img src="img/connexion/15-creerprofil-actif.png">
+	 		</a>
+	 	<% } %>
+ 		<a href="#cgu" id="cgButton">
+ 			<img src="img/connexion/15-cgu-passif.png">
+ 		</a>
+  	</div>
+	<div id="register">
+    	<table>
+           	<tr>
+           		<td class="col1"><label for="inputNewLogin">Indentifiant</label></td>
+				<td class="col2"><input type="text" id="inputNewLogin" placeholder="identifiant/Email" value="<%= currentUser.get('login') %>"></td>
+			</tr>
+			<tr>
+           		<td class="col1"><label for="inputNewFirstname">Prénom</label></td>
+				<td class="col2"><input type="text" id="inputNewFirstname" placeholder="Prénom" value="<%= currentUser.get('first_name') %>"></td>
+			</tr>
+			<tr>
+           		<td class="col1"><label for="inputNewLastname">Nom de famille</label></td>
+				<td class="col2"><input type="text" id="inputNewLastname" placeholder="Nom de famille" value="<%= currentUser.get('last_name') %>"></td>
+			</tr>
+			<tr>
+           		<td class="col1"><label for="inputNewEmail">Email</label></td>
+				<td class="col2"><input type="text" id="inputNewEmail" placeholder="Email" value="<%= currentUser.get('email') %>"></td>
+			</tr>
+			<tr>
+				<td class="col1"><label class="control-label" for="inputNewPassword">Mot de passe</label></td>
+				<td class="col2"><input type="password" id="inputNewPassword" placeholder="Password"></td>
+			</tr>
+			<tr><td></td>
+				<td class="col2"><label class="checkbox"><input type="checkbox" id="cgu"> j'accepte les CGU</label></td>
+			</tr>
+			<tr><td></td>
+				<td class="col2">
+					<div id="activityIndicator" class="centered"></div>
+					<div id="doRegisterButton" class="button">S'inscrire</div>
+				</td>
+			</tr>
+		</table>
+	</div>
+
+</div>

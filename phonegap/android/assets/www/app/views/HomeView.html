@@ -1,0 +1,35 @@
+ <div id="homeView">
+	<div class="background">
+		<img src="img/home/02-photo-fond.jpg" class="fullscreen"/>
+	</div>
+	<div id="user">
+		<a href="#login"><p><%= currentUser.get("logged")?currentUser.getName():"non connecté" %></p></a>
+	</div>
+	<div id="mainMenu">
+		<!--  p>
+            <a href="#login" id="profileButton">
+            	PROFIL >
+            </a>
+		</p -->
+        <p class="alpha">
+            <a href="#concept" id="conceptButton">
+            	<img src="img/home/02-bouton-leconcept.png">
+            </a>
+        </p>
+        <p>
+            <a href="#decouvrir" id="decouvrirButton">
+            	<img src="img/home/02-bouton-decouverte.png">
+            </a>
+        </p>
+        <p>
+            <a href="#partager" id="partagerButton">
+            	<img src="img/home/02-bouton-partage.png">
+            </a>
+        </p>
+        <p>
+            <a href="#palmares" id="palmaresButton">
+            	<img src="img/home/02-bouton-palmares.png">
+            </a>
+		</p>
+	</div>
+</div>

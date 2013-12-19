@@ -1,0 +1,31 @@
+ <div id="decouvrirListView" class="decouvrir">
+ 	<div id="menuView" class="hcenter">
+	 		<a href="#sitesList" id="siteListButton">
+	 			<img src="img/decouvrir/bouton-liste-actif.png">
+	 		</a>
+	 		<a href="#sitesMap" id="sitesMapButton">
+	 			<img src="img/decouvrir/bouton-carte-passif.png">
+	 		</a>
+	 		<a href="#sitesPhotos" id="sitesPhotosButton">
+	 			<img src="img/decouvrir/bouton-photos-passif.png">
+	 		</a>
+ 	</div>
+ 	<div id="sites" class="hcenter viewContent">
+ 		<div id="innerPanel">
+	 		<% var letter = null;
+	 		   _.each(sites, function(site, index) { 
+					var site = sites.at(index); 
+					var sitename = site.get('site_name');
+					if(sitename.charAt(0) != letter){
+						letter = sitename.charAt(0); %>
+						<div class="letter"><%= letter %></div>
+					<% } %>
+		 			<a href="#site/<%= site.get('site_id') %>">
+			 			<div class="sitenameWrapper siteButton" data-site_id="<%= site.get('site_id') %>">
+			 				<div class="sitename"><%= sitename %></div><% if(site.get('category')) { %> <div class="category">&nbsp;<%= site.get('category') %></div><% } %>
+			 			</div>
+		 			</a>
+	 		<% }) %>
+ 		</div>
+ 	</div>
+</div>

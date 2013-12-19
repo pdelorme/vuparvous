@@ -1,0 +1,50 @@
+ <div id="decouvrirSiteView">
+ 	<div id="siteView-wrapper">
+ 	
+ 		<div id="siteView-photo"></div>
+ 		<div id="siteView-descriptif" >
+ 			<div class="scrolltab">
+ 				<div><%= site.getDescription() %></div>
+ 			</div>
+ 		</div>
+ 		<div id="siteView-map"></div>
+ 		<div id="siteView-infobar">
+ 			<form action="">
+ 				<div id="infobar-1" class="color-white">
+ 					VOTER POUR CETTE PHOTO
+ 				</div>
+ 				<div id="infobar-2" class="color-black">
+ 						<input id="photo_id" type="hidden"/>
+ 						<input id="vote-qualite" type="checkbox" <%= (vote && vote.get('vote_qualite'))?'checked':'' %> />
+						<label for="vote-qualite" >PHOTO DE QUALITÉ</label><br/>
+ 						<input id="vote-insolite" type="checkbox" <%= (vote && vote.get('vote_insolite'))?'checked':'' %> />
+						<label for="vote-insolite" >PHOTO INSOLITE</label>
+ 				</div>
+ 				<div id="infobar-3">
+					<!-- JE VOTE<br>
+					<div id="vote-button" class="vote-button clickable"></div> -->
+					<div id="vote-action" class="menu-col">
+						EMPTY.
+			 		</div>
+ 				</div>
+ 				<div id="infobar-4" class="color-black">
+		 			AUTEUR DE LA PHOTO<br/>
+		 			<span id="infobar-auteur"></span>
+ 				</div>
+ 				<div id="infobar-5" class="color-black">
+		 			COMMENTAIRE DE LA PHOTO<br/>
+				 	<span id="infobar-comment"></span>
+ 				</div>
+ 			</form>
+ 		</div>
+ 		<div id="siteView-photos" class="scrolltab">
+	 		<div class="photo-selection template">
+				<img class="photo-border" src="/assets/img/decouvrir/cadre-photo-selectionnee.png"/>
+ 				<img class="photo-image" src=""/>
+ 				<div class="photo-caption">
+ 					<div class="score"></div>
+ 				</div>
+ 			</div>
+ 		</div>
+ 	</div>
+</div>

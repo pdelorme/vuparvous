@@ -1,0 +1,52 @@
+ <div id="decouvrirPhotoView">
+ 	<div id="menuView" class="hcenter">
+ 		<div class="menu-col">
+ 			<input id="vote-qualite" type="checkbox" <%= (vote && vote.get('vote_qualite'))?'checked':'' %> />
+			<label for="vote-qualite" >PHOTO DE QUALITÉ</label>
+		</div>
+		<div class="menu-col">
+			<input id="vote-insolite" type="checkbox" <%= (vote && vote.get('vote_insolite'))?'checked':'' %>/>
+			<label for="vote-insolite" >PHOTO INSOLITE</label>
+		</div>
+		<div id="vote-action" class="menu-col">
+			EMPTY.
+ 		</div>
+ 		<a id="backButton" href="#site/<%= site.get('site_id') %>">
+ 			<img src="img/decouvrir/bouton-retour-black.png">
+ 		</a>
+ 	</div>
+ 	<div id="photoContentWrapper" class="hcenter viewContent">
+    	<div id="button-info">
+    		<img src="img/decouvrir/bouton-info-black.png"/>
+    	</div>
+    	<div id="photoContent">
+    		<div class="scrollpane">
+	    	<div id="photo">
+	    		<img id="photo_<%= photo.get('id') %>" src="<%= photo.getImageSrc('big','#photo_'+photo.get('id')) %>" class="loading">
+	    	</div>
+	    	<div id="caption">
+	    		<strong><div id="site_name"><%= site.get('site_name') %></div></strong>
+	    	</div>
+	   		<% if(photo.get("commentaire")){ %>
+		    	<div id="comment">
+		    		<strong>commentaire de l'auteur</strong><br/>
+		    		<%= photo.get("commentaire") %>
+		    	</div>
+	    	<% } %>
+	    	</div>
+    	</div>
+    	<div id="infoWrapper">
+	    	<div id="info">
+	    		<strong>Auteur de la photo</strong><br/>
+	    		<%= photo.get('auteur') %><br/>
+	    		<strong>PALMARES ACTUEL</strong><br/>
+	    		<%= photo.get('global_rank') %><br/>
+	    		<strong>NOTE GLOBALE</strong><br>
+	    		<%= photo.get('score_top') %><br/>
+	    		<strong>DéTAIL DES VOTES</strong><br/>
+	    		photo de qualité <%= photo.get('vote_qualite') %><br/>
+	    		photo insolite <%= photo.get('vote_insolite') %><br/>
+	    	</div>
+	    </div>
+ 	</div>
+</div>

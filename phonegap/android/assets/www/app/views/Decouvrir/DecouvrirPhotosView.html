@@ -1,0 +1,30 @@
+ <div id="decouvrirPhotosView" class="decouvrir">
+ 	<div id="menuView" class="hcenter">
+	 		<a href="#sitesList" id="siteListButton">
+	 			<img src="img/decouvrir/bouton-liste-passif.png">
+	 		</a>
+	 		<a href="#sitesMap" id="sitesMapButton">
+	 			<img src="img/decouvrir/bouton-carte-passif.png">
+	 		</a>
+	 		<a href="#sitesPhotos" id="sitesPhotosButton">
+	 			<img src="img/decouvrir/bouton-photos-actif.png">
+	 		</a>
+ 	</div>
+ 	<div id="sites" class="hcenter viewContent">
+		<div id="sitesContainer">
+ 		<% _.each(sites, function(site, index) { 
+			site = sites.at(index); %>
+ 			<a href="#site/<%= site.get('site_id') %>">
+	 			<div class="photoWrapper siteButton" data-site_id="<%= site.get('site_id') %>">
+	 				<div class="photo">
+	 					<img id="photo_<%= site.get('photo').get('id') %>" src="<%= site.get('photo').getImageSrc('vignette','#photo_'+site.get('photo').get('id')) %>" class="loading">
+	 				</div>
+	 				<div class="caption">
+	 					<strong><%= site.get('site_name') %> <span class="color-pink"><%= site.get('category') %></span></strong>
+	 				</div>
+	 			</div>
+ 			</a>
+ 		<% }) %>
+ 		</div>
+ 	</div>
+</div>

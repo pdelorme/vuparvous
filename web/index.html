@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" > <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" > <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" > <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>VuParVous - Marseille</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=1024px">
+
+    <link rel="stylesheet" href="lib/bootstrap/bootstrap.min.css">
+    <style>
+		body {
+		    padding-top: 60px;
+		    padding-bottom: 40px;
+		}
+	</style>
+	<link rel="stylesheet" href="xxlib/bootstrap/bootstrap-responsive.min.css">
+	<link rel="stylesheet" href="lib/leaflet/leaflet.css">
+	<link rel="stylesheet" href="lib/fancybox/jquery.fancybox.css"/>
+	<link rel="stylesheet" href="lib/jscrollpane/jquery.jscrollpane.css"/>
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+	<link rel="stylesheet" href="css/main.css">
+	<script src="lib/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+</head>
+<body>
+	<!--[if lt IE 7]>
+		<p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+   	<![endif]-->
+
+   	<!-- This code is taken from http://twitter.github.com/bootstrap/examples/hero.html -->
+	<div id="pageHeader">
+       	<div class="navbar">
+        	<div class="container">
+                <a href="#" id="homeButton" class="brand"><img class="image-button" src="assets/img/header/logo-horizontal.png"/></a>
+					<ul class="nav pull-right">
+						<li><a href="#decouvrir" id="decouvrirButton"> 
+							<img
+								class="image-button" data-group="header-navbar" data-toggle-manual="yes"
+								src="assets/img/header/menu-decouverte-1-passif.png"
+								data-off="assets/img/header/menu-decouverte-1-passif.png"
+								data-over="assets/img/header/menu-decouverte-2-souris.png"
+								data-on="assets/img/header/menu-decouverte-3-actif.png" />
+						</a></li>
+						<li><a href="#partager" id="partagerButton"> 
+							<img
+								class="image-button" data-group="header-navbar" data-toggle-manual="yes"
+								src="assets/img/header/menu-partage-1-passif.png"
+								data-off="assets/img/header/menu-partage-1-passif.png"
+								data-over="assets/img/header/menu-partage-2-souris.png"
+								data-on="assets/img/header/menu-partage-3-actif.png" />
+						</a></li>
+						<li><a href="#palmares" id="palmaresButton">
+							<img
+								class="image-button" data-group="header-navbar" data-toggle-manual="yes"
+								src="assets/img/header/menu-palmares-1-passif.png"
+								data-off="assets/img/header/menu-palmares-1-passif.png"
+								data-over="assets/img/header/menu-palmares-2-souris.png"
+								data-on="assets/img/header/menu-palmares-3-actif.png" />
+						</a></li>
+						<li><div id="profileInfo">
+							<div id=userInfo></div>
+							<div id="profileButton" class="button">
+								<img  class="image-button" data-group="none" data-toggle-manual="yes"
+									src="assets/img/header/boutons-deconnecte.png" 
+									data-off="assets/img/header/boutons-deconnecte.png"
+									data-on="assets/img/header/boutons-connecte.png"/>
+							</div>
+						</div></li>
+					</ul>
+           	</div>
+       	</div>
+	</div>
+
+	<div id="pageContainer" class="container">
+		<div id="homeView">
+			<!-- carousel -->
+			<div id="homeCarousel" class="carousel slide">
+				<ol class="carousel-indicators">
+				  <li data-target="#homeCarousel" data-slide-to="0" class="active"></li>
+				  <li data-target="#homeCarousel" data-slide-to="1"></li>
+				  <li data-target="#homeCarousel" data-slide-to="2"></li>
+				</ol>
+				<!-- Carousel items -->
+				<div class="carousel-inner">
+					<div class="active item">
+				  		<img src="assets/img/acceuil/ecran-02-photodefile-1.jpg" width="1170" alt="">
+				  		<div class="carousel-caption">
+	         				<p>AVEC L’APPLICATION «MARSEILLE VUPARVOUS»</p>
+							<p><strong>DÉCOUVREZ LA VILLE AUTREMENT...</strong></p>
+	       				</div>
+	       			</div>
+					<div class="item">
+						<img src="assets/img/acceuil/ecran-02-photodefile-2.jpg" width="1170" alt="">	
+		  				<div class="carousel-caption">
+	              			<p>DEPUIS VOTRE SMART PHONE</p>
+							<p><strong>VOUS REGARDEZ, VOUS PHOTOGRAPHIEZ, VOUS PARTAGEZ</strong></p>
+							<p>DES LIEUX INSOLITES, DES BÂTIMENTS EMBLÉMATIQUES À MARSEILLE...</p>
+	            		</div>
+					</div>
+					<div class="item">
+						<img src="assets/img/acceuil/ecran-02-photodefile-3.jpg" width="1170" alt="">			    
+						<div class="carousel-caption">
+		              		<p>VOUS PARTAGEZ VOS PHOTOS, ELLES SONT NOTÉES...</p>
+							<p><strong>NOUS ÉDITONS UN LIVRE AVEC LES MEILLEURES, SI LES VÔTRES Y SONT, VOUS GAGNEZ CE LIVRE.</strong></p>
+		            	</div>
+					</div>
+				</div>
+				<!-- Carousel nav -->
+			  	<a class="carousel-control left" href="#homeCarousel" data-slide="prev">&lsaquo;</a>
+			  	<a class="carousel-control right" href="#homeCarousel" data-slide="next">&rsaquo;</a>
+			</div>
+			<!-- /carousel -->
+			<div class="row">
+			    <div class="span2">
+			        <p><a href="https://play.google.com/store/apps/details?id=com.urbanoid.vuparvous.marseille">
+						  <img alt="Appli Android sur Google Play"
+						       src="https://developer.android.com/images/brand/fr_app_rgb_wo_45.png" 
+						       style="width:116px;height:40px"/>
+						</a>
+					</p>
+			        <p><a href="https://itunes.apple.com/fr/app/marseille-vuparvous/id673058382?mt=8&uo=4" target="itunes_store">
+			           <img src="http://r.mzstatic.com/images/web/linkmaker/badge_appstore-lrg.gif" alt="Marseille VuParVous - Urbanoid" style="border: 0;"/>
+			           </a>
+			        </p>
+			    </div>
+			    <div class="span10">
+			        <p>VuParVous est une application (mobile et web) simple, ludique, interactive, collaborative pour visiter la ville autrement : découvrir des lieux emblématiques et insolites, partager sa vision avec d’autres et pour valoriser cette nouvelle expérience touristique, la possibilité de gagner un livre de photos. </p> 
+
+					<p>Tout ceci se joue en 3 modes.</p>
+					<p>Le mode «<strong><span class="color-green">découverte</span></strong>» assiste le touriste et l’amoureux de la région de Marseille dans sa visite des lieux et bâtiments en lui proposant : </p>
+					<ul>
+					<li>une fiche descriptive pour chacun de ces lieux</li>
+					<li>leur emplacement sur une carte</li>
+					</ul>
+					<p>Dans le mode «<strong><span class="color-pink">partage</span></strong>» après s’être identifié, on peut consulter les photos que l’on a partagées depuis l’application mobile ainsi que leur classement.</p>
+					<p>Le mode «<strong><span class="color-yellow">palmarès</span></strong>» permet de voir toutes les photos classées selon les votes.</p> 
+					<p>Vous pouvez voter pour les photos partagées, dans «partage» ou «palmarès», dans 2 catégories «photo de qualité» ou «photo insolite». La notation est automatique et fonction des votes : 1 vote = 1 point. </p> 
+					<p>Une fois par an, VuParVous édite un livre avec les meilleures photos de chaque lieu (selon le classement des utilisateurs) constituant <strong>un portrait de la ville vue par vous</strong>. Ce livre sera offert aux touristes ayant réalisé les images lauréates, il sera diffusé dans les lieux touristiques ou culturels.</p>
+			   	</div>
+			</div>
+		</div>
+	</div> <!-- /container -->
+
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+	<script>window.jQuery || document.write('<script src="lib/jquery-1.9.1.min.js"><\/script>')</script>
+	<script src="http://code.jquery.com/jquery-migrate-1.2.1.js"></script>
+	<script src="lib/bootstrap/bootstrap.min.js"></script>
+	<script src="lib/underscore-1.4.4.min.js"></script>
+	<script src="lib/backbone-1.0.0.js"></script>
+	<script src="lib/backbone.localStorage.js"></script>
+	
+	<!-- carto -->
+	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>		        
+	<script src="lib/leaflet/leaflet.js"></script>
+	
+	<script src="lib/fancybox/jquery.fancybox.js"></script>
+	<script src="lib/jscrollpane/jquery.mousewheel.js"></script>
+	<script src="lib/jscrollpane/jquery.jscrollpane.min.js"></script>
+	
+
+	<script src="app/utils.js"></script>
+	<script src="app/models/ObjectModels.js"></script>
+	<script src="app/api_client.js"></script>
+	<script src="app/main.js"></script>
+	
+	<script src="app/TemplateManager.js"></script>
+	<script src="app/views/BaseView.js"></script>
+	<script src="app/views/HomeView.js"></script>
+	<script src="app/views/HeaderView.js"></script>
+	<script src="app/views/Profil/ProfilMainView.js"></script>
+	<script src="app/views/Decouvrir/DecouvrirMainView.js"></script>
+	<script src="app/views/Partage/PartageMainView.js"></script>
+	<script src="app/views/Palmares/PalmaresMainView.js"></script>
+
+	<script>
+		var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+		(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+		g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+		s.parentNode.insertBefore(g,s)}(document,'script'));
+	</script>
+</body>
+</html>

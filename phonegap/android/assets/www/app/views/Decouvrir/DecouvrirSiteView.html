@@ -1,0 +1,44 @@
+ <div id="decouvrirSiteView" class="decouvrir">
+ 	<div id="menuView" class="hcenter">
+	 		<a href="#sitesList" id="siteListButton">
+	 			<img src="img/decouvrir/bouton-liste-passif.png">
+	 		</a>
+	 		<a href="#sitesMap" id="sitesMapButton">
+	 			<img src="img/decouvrir/bouton-carte-passif.png">
+	 		</a>
+	 		<a href="#sitesPhotos" id="sitesPhotosButton">
+	 			<img src="img/decouvrir/bouton-photos-passif.png">
+	 		</a>
+ 	</div>
+ 	<div id="site" class="hcenter viewContent">
+    	<div id="button-info">
+    		<img src="img/decouvrir/bouton-info.png"/>
+    		<div class="bottom">
+    			<span><strong id="site_name"><%= site.get("site_name") %></strong></span>
+    		</div>
+    	</div>
+    	<div id="photos">
+    		<div id="photosContainer">
+    		<div class="fake"></div>
+	    		<% _.each(site.get("photos"), function(photo, index) { 
+	    			photo = site.get("photos").at(index);
+	    		%>
+		 			<div class="photoWrapper photoButton" data-photo_id="<%= photo.get('photo_id') %>">
+		 				<div class="photo">
+		 					<a href="#photo/<%= site.get('site_id') %>/<%= photo.get('photo_id') %>">
+	    						<img id="photo_<%= photo.get('id') %>" src="<%= photo.getImageSrc('vignette','#photo_'+photo.get('id')) %>" class="loading">
+		 					</a>
+		 				</div>
+		 			</div>
+				<% }); %>
+			</div>
+    	</div>
+	    <div id="infoWrapper">
+	    	<div id="info">
+	    		<div id="infoContainer">
+	    			<%= site.getDescription() %>
+	    		</div>
+	    	</div>
+	    </div>
+ 	</div>
+</div>

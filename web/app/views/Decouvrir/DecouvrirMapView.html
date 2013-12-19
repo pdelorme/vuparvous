@@ -1,0 +1,16 @@
+ <div id="decouvrirMapView">
+ 	<div id='mapContainer'>
+	    <div id="map" style="width:100%;height:100%;"></div>
+	</div>
+</div>
+<div id="viewFooter" class="black-background">
+	<div class="container">
+		<span><strong>Lieux</strong></span>
+		<% if(currentUser.get("logged")) { %>
+		<span class="color-green"><img src="/assets/img/icon_adécouvrir.png"/> à découvrir</span>
+		<span class="color-white"><img src="/assets/img/icon_visité.png"/> déjà visités</span>
+		<span class="color-pink"><img src="/assets/img/icon_partagé.png"/> partagés</span>
+		<% } %>
+		<span class="color-pink"><img src="/assets/img/icon_mp13.png"/> marseille-provence 2013</span>
+	</div>
+</div>
