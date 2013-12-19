@@ -5,17 +5,17 @@ VuParVous est une application (mobile et web) simple, ludique, interactive, coll
 
 Tout ceci se joue en 3 modes.
 
-Le mode «découverte» assiste le touriste et l’amoureux de la région de Marseille dans sa visite des lieux et bâtiments en lui proposant :
+- Le mode «découverte» assiste le touriste et l’amoureux de la région de Marseille dans sa visite des lieux et bâtiments en lui proposant :
 
-une fiche descriptive pour chacun de ces lieux
-leur emplacement sur une carte
-Dans le mode «partage» après s’être identifié, on peut consulter les photos que l’on a partagées depuis l’application mobile ainsi que leur classement.
+  - une fiche descriptive pour chacun de ces lieux
+  - leur emplacement sur une carte
 
-Le mode «palmarès» permet de voir toutes les photos classées selon les votes.
+- Dans le mode «partage» après s’être identifié, on peut consulter les photos que l’on a partagées depuis l’application   mobile ainsi que leur classement.
+
+- Le mode «palmarès» permet de voir toutes les photos classées selon les votes.
 
 Vous pouvez voter pour les photos partagées, dans «partage» ou «palmarès», dans 2 catégories «photo de qualité» ou «photo insolite». La notation est automatique et fonction des votes : 1 vote = 1 point.
 
-Une fois par an, VuParVous édite un livre avec les meilleures photos de chaque lieu (selon le classement des utilisateurs) constituant un portrait de la ville vue par vous. Ce livre sera offert aux touristes ayant réalisé les images lauréates, il sera diffusé dans les lieux touristiques ou culturels.
 
 OpenDataAwards 2013
 ===================
